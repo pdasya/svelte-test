@@ -6,3 +6,7 @@
 body {
 	font-family: 'Akzidenz';
 }
+
+.hidden {
+	display: none;
+}
