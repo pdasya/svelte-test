@@ -30,9 +30,7 @@
 		calendarDays = [];
 		let firstDay = new Date(currentYear, currentMonth, 1).getDay();
 
-		let offset = firstDay === 1 ? 1 : 7 - firstDay;
-
-		for (let i = 0; i < offset; i++) {
+		for (let i = 0; i < firstDay; i++) {
 			calendarDays.push(null);
 		}
 
@@ -48,13 +46,41 @@
 		}
 	}
 
+	function previousMonth() {
+		if (currentMonth === 0) {
+			currentMonth = 11;
+			currentYear--;
+		} else {
+			currentMonth--;
+		}
+		currentMonthName = getMonthName(currentMonth);
+		daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+		generateCalendarDays();
+	}
+
+	function nextMonth() {
+		if (currentMonth === 11) {
+			currentMonth = 0;
+			currentYear++;
+		} else {
+			currentMonth++;
+		}
+		currentMonthName = getMonthName(currentMonth);
+		daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+		generateCalendarDays();
+	}
+
 	function handleDateClick(event) {
 		dispatch('dateSelected', event.detail);
 	}
 </script>
 
 <main class="calendarWrapper">
-	<p class="calendarMonthYear">{currentMonthName} {currentYear}</p>
+	<div class="calendarHeader">
+		<button on:click={previousMonth}>&lt;</button>
+		<p class="calendarMonthYear">{currentMonthName} {currentYear}</p>
+		<button on:click={nextMonth}>&gt;</button>
+	</div>
 	<div class="calendar">
 		<div class="weekDays">
 			{#each weekDays as day}
@@ -86,9 +112,23 @@
 		flex-direction: column;
 	}
 
+	.calendarHeader {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 400px;
+		margin-bottom: 1rem;
+	}
+
+	.calendarHeader button {
+		background-color: transparent;
+		border: none;
+		font-size: 1.5rem;
+		cursor: pointer;
+	}
+
 	.calendarMonthYear {
 		font-size: 1.5rem;
-		margin-bottom: 1rem;
 	}
 
 	.calendar {
