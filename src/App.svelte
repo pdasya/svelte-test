@@ -1,5 +1,11 @@
 <script>
-	import './styles/app.css';
+	import DatePicker from './components/DatePicker.svelte';
+
+	let selectedDates = ['2024-07-15', '2024-07-20', '2024-07-25'];
+
+	function handleDateSelected(event) {
+		console.log('Выбрана дата:', event.detail);
+	}
 </script>
 
-<div class="test">DatePicker will be here</div>
+<DatePicker {selectedDates} on:dateSelected={handleDateSelected} />
