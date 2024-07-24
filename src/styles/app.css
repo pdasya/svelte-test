@@ -1,7 +1,8 @@
-.test {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+@font-face {
+	font-family: 'Akzidenz';
+	src: url('/fonts/AkzidenzGroteskPro-Regular.otf');
+}
 
-	font-size: 70px;
+body {
+	font-family: 'Akzidenz';
 }

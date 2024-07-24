@@ -77,9 +77,9 @@
 
 <main class="calendarWrapper">
 	<div class="calendarHeader">
-		<button on:click={previousMonth}>&lt;</button>
+		<button on:click={previousMonth} class="previousButton">&#10140;</button>
 		<p class="calendarMonthYear">{currentMonthName} {currentYear}</p>
-		<button on:click={nextMonth}>&gt;</button>
+		<button on:click={nextMonth}>&#10140;</button>
 	</div>
 	<div class="calendar">
 		<div class="weekDays">
@@ -118,6 +118,7 @@
 		justify-content: space-between;
 		width: 400px;
 		margin-bottom: 1rem;
+		font-weight: bold;
 	}
 
 	.calendarHeader button {
@@ -145,6 +146,7 @@
 	.weekDay {
 		text-align: center;
 		font-weight: bold;
+		color: rgb(147, 149, 152);
 	}
 
 	.calendarGrid {
@@ -156,5 +158,9 @@
 	.empty-day {
 		width: 100%;
 		height: 100%;
+	}
+
+	.previousButton {
+		transform: rotate(180deg);
 	}
 </style>
