@@ -15,3 +15,5 @@
    npm install
 
    ```
+
+### To add selected dates, please modify utils/selectedDates.js file

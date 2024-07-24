@@ -1,8 +1,7 @@
 <script>
 	import DatePicker from './components/DatePicker.svelte';
 	import { formatDateToYYYYMMDD } from './utils/helpers';
-
-	let selectedDates = ['2024-08-15', '2024-07-20', '2024-07-25'];
+	import { selectedDates } from './utils/selectedDates';
 
 	let chosenDates = new Set();
 
