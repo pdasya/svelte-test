@@ -1,5 +1,6 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
+	import '../styles/DateComponent.css';
 
 	export let date;
 	export let isSelected = false;
@@ -24,33 +25,3 @@
 >
 	{date.getDate()}
 </div>
-
-<style>
-	.date {
-		padding: 10px;
-		text-align: center;
-		font-weight: bold;
-		border: 2px solid transparent;
-	}
-
-	.past {
-		color: gray;
-	}
-
-	.future {
-		color: black;
-	}
-
-	.selectable {
-		box-sizing: border-box;
-		color: white;
-		cursor: pointer;
-		background-color: red;
-		border-radius: 10px;
-		border: 2px solid transparent;
-	}
-
-	.active {
-		border: solid 2px rgb(115, 5, 5);
-	}
-</style>
