@@ -1,8 +1,5 @@
 <script>
-let dates = [
-    '2024-07-24'
-];
+	import './styles/app.css';
 </script>
 
-
-<div>{dates}</div>
+<div class="test">DatePicker will be here</div>
